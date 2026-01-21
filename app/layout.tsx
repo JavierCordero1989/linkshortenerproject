@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import "./globals.css";
@@ -52,7 +53,8 @@ export default function RootLayout({
                       <Button variant="ghost">Sign In</Button>
                     </DialogTrigger>
                     <DialogContent>
-                      <SignIn />
+                      <DialogTitle className="sr-only">Sign In</DialogTitle>
+                      <SignIn routing="hash" />
                     </DialogContent>
                   </Dialog>
                   <Dialog>
@@ -60,7 +62,8 @@ export default function RootLayout({
                       <Button>Sign Up</Button>
                     </DialogTrigger>
                     <DialogContent>
-                      <SignUp />
+                      <DialogTitle className="sr-only">Sign Up</DialogTitle>
+                      <SignUp routing="hash"/>
                     </DialogContent>
                   </Dialog>
                 </SignedOut>
