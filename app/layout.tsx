@@ -43,6 +43,8 @@ export default function RootLayout({
       appearance={{
         theme: shadcn,
       }}
+      signInFallbackRedirectUrl="/dashboard"
+      signUpFallbackRedirectUrl="/dashboard"
     >
       <html lang="en" className="dark">
         <body
@@ -59,7 +61,7 @@ export default function RootLayout({
                     </DialogTrigger>
                     <DialogContent>
                       <DialogTitle className="sr-only">Sign In</DialogTitle>
-                      <SignIn routing="hash" />
+                      <SignIn routing="virtual" />
                     </DialogContent>
                   </Dialog>
                   <Dialog>
@@ -68,7 +70,7 @@ export default function RootLayout({
                     </DialogTrigger>
                     <DialogContent>
                       <DialogTitle className="sr-only">Sign Up</DialogTitle>
-                      <SignUp routing="hash"/>
+                      <SignUp routing="virtual" />
                     </DialogContent>
                   </Dialog>
                 </SignedOut>
