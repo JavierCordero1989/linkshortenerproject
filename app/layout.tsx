@@ -42,7 +42,7 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <header className="border-b">
+          <header className="border-b border-zinc-800">
             <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
               <h1 className="text-xl font-bold">Link Shortener</h1>
               <div className="flex gap-4 items-center">
