@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -29,11 +27,11 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button size="lg" className="text-lg px-8 py-6">
+            <Button size="lg" className="text-lg px-8 py-6" aria-label="Comenzar gratis con el acortador de enlaces">
               <Link2 className="w-5 h-5 mr-2" />
               Comenzar Gratis
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+            <Button size="lg" variant="outline" className="text-lg px-8 py-6" aria-label="Ver demostración del acortador de enlaces">
               Ver Demo
             </Button>
           </div>
@@ -168,7 +166,7 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex justify-center pb-12">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+            <Button size="lg" variant="secondary" className="text-lg px-8 py-6" aria-label="Crear cuenta gratis en el acortador de enlaces">
               <Link2 className="w-5 h-5 mr-2" />
               Crear Cuenta Gratis
             </Button>
