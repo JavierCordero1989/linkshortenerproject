@@ -1,5 +1,6 @@
 ---
 description: Leer antes de generar mensajes de commit. Define el estándar de Conventional Commits en español para la generación automática de versiones semánticas.
+applyTo: '**/*'
 ---
 
 # Mensajes de Commit - Conventional Commits en Español
