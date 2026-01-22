@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Link2, List, ChevronLeft, ChevronRight, Users } from "lucide-react";
+import { Link2, List, ChevronLeft, ChevronRight, Users, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -31,6 +31,22 @@ export function Sidebar() {
         {
           title: "Lista",
           href: "/dashboard/contactos",
+          icon: List,
+        },
+      ],
+    },
+    {
+      title: "Artículos",
+      icon: FileText,
+      items: [
+        {
+          title: "Pendientes",
+          href: "/dashboard/articulos",
+          icon: List,
+        },
+        {
+          title: "Cerrados",
+          href: "/dashboard/articulos/cerrados",
           icon: List,
         },
       ],

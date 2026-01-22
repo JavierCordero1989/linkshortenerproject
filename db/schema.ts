@@ -32,3 +32,14 @@ export const contactos = pgTable('contactos', {
 
 export type Contacto = typeof contactos.$inferSelect;
 export type NewContacto = typeof contactos.$inferInsert;
+
+export const articulos = pgTable('articulos', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  nombreArticulo: varchar('nombre_articulo', { length: 50 }).notNull(),
+  fechaRegistro: timestamp('fecha_registro').default(sql`CURRENT_TIMESTAMP`).notNull(),
+  fechaCierre: timestamp('fecha_cierre'),
+  totalDias: integer('total_dias').default(0).notNull(),
+});
+
+export type Articulo = typeof articulos.$inferSelect;
+export type NewArticulo = typeof articulos.$inferInsert;
