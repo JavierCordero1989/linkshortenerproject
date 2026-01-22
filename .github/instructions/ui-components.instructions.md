@@ -39,7 +39,7 @@ Usar siempre los componentes oficiales de shadcn/ui:
 // ✅ CORRECTO
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 // ❌ INCORRECTO
 import { Button } from "./components/CustomButton"
@@ -79,7 +79,7 @@ Si necesitas funcionalidad adicional, compón componentes de shadcn/ui:
 ```typescript
 // ✅ CORRECTO - Componer shadcn/ui
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 export function ActionButton() {
   return (
@@ -88,6 +88,7 @@ export function ActionButton() {
         <Button>Abrir</Button>
       </DialogTrigger>
       <DialogContent>
+        <DialogTitle>Título del Diálogo</DialogTitle>
         {/* Contenido */}
       </DialogContent>
     </Dialog>
@@ -103,6 +104,41 @@ export function ActionButton() {
 - [ ] NO existen componentes UI personalizados
 - [ ] Se usan las variantes de shadcn/ui para personalización
 - [ ] Tailwind CSS configurado correctamente
+
+## ⚠️ Reglas Importantes de Componentes
+
+### Dialog/AlertDialog - DialogTitle Obligatorio
+
+**CRÍTICO**: Todo `DialogContent` o `AlertDialogContent` **DEBE** incluir un `DialogTitle` o `AlertDialogTitle` para cumplir con los estándares de accesibilidad.
+
+```typescript
+// ✅ CORRECTO - DialogTitle visible
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
+
+<Dialog>
+  <DialogContent>
+    <DialogTitle>Mi Título</DialogTitle>
+    {/* Contenido */}
+  </DialogContent>
+</Dialog>
+
+// ✅ CORRECTO - DialogTitle oculto visualmente pero accesible para lectores de pantalla
+<Dialog>
+  <DialogContent>
+    <DialogTitle className="sr-only">Título para accesibilidad</DialogTitle>
+    {/* Contenido sin título visible */}
+  </DialogContent>
+</Dialog>
+
+// ❌ INCORRECTO - Falta DialogTitle
+<Dialog>
+  <DialogContent>
+    {/* Contenido */}
+  </DialogContent>
+</Dialog>
+```
+
+**Nota**: Si el diálogo no necesita un título visible, usar `className="sr-only"` para ocultarlo visualmente pero mantenerlo accesible.
 
 ## 🔧 Personalización Permitida
 

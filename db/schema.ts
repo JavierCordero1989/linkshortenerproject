@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, uuid, uniqueIndex, index, integer } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp, uuid, uniqueIndex, index, integer, varchar } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
 export const links = pgTable(
@@ -20,3 +20,15 @@ export const links = pgTable(
 
 export type Link = typeof links.$inferSelect;
 export type NewLink = typeof links.$inferInsert;
+
+export const contactos = pgTable('contactos', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  nombre: varchar('nombre', { length: 50 }).notNull(),
+  numeroTelefono: varchar('numero_telefono', { length: 20 }),
+  fechaCreacion: timestamp('fecha_creacion').default(sql`CURRENT_TIMESTAMP`).notNull(),
+  fechaModificacion: timestamp('fecha_modificacion').default(sql`CURRENT_TIMESTAMP`).notNull(),
+  fechaEliminado: timestamp('fecha_eliminado'),
+});
+
+export type Contacto = typeof contactos.$inferSelect;
+export type NewContacto = typeof contactos.$inferInsert;

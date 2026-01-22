@@ -16,6 +16,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { LoadingModal } from "@/components/LoadingModal";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -80,6 +81,7 @@ export default function RootLayout({
               </div>
             </nav>
           </header>
+          <LoadingModal />
           {children}
         </body>
       </html>

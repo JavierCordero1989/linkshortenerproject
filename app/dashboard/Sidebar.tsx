@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Link2, List, ChevronLeft, ChevronRight } from "lucide-react";
+import { Link2, List, ChevronLeft, ChevronRight, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -20,6 +20,17 @@ export function Sidebar() {
         {
           title: "Listar enlaces acortados",
           href: "/dashboard/links",
+          icon: List,
+        },
+      ],
+    },
+    {
+      title: "Contactos",
+      icon: Users,
+      items: [
+        {
+          title: "Lista",
+          href: "/dashboard/contactos",
           icon: List,
         },
       ],

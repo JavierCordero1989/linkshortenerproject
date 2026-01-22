@@ -59,22 +59,13 @@ export default async function LinksPage() {
                       <ExternalLink className="w-3 h-3 flex-shrink-0" />
                     </a>
                   </div>
-                  <div className="flex flex-col items-end gap-3">
-                    <Badge variant="secondary" className="flex-shrink-0">
-                      {new Date(link.createdAt).toLocaleDateString('es-ES', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                      })}
-                    </Badge>
-                    <div className="flex gap-2">
-                      <EditLinkDialog link={link} />
-                      <DeleteLinkDialog 
-                        linkId={link.id} 
-                        linkTitle={link.title}
-                        shortCode={link.shortCode}
-                      />
-                    </div>
+                  <div className="flex gap-2">
+                    <EditLinkDialog link={link} />
+                    <DeleteLinkDialog 
+                      linkId={link.id} 
+                      linkTitle={link.title}
+                      shortCode={link.shortCode}
+                    />
                   </div>
                 </div>
               </CardHeader>
