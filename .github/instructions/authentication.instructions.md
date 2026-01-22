@@ -1,3 +1,7 @@
+---
+description: Lea estas instrucciones antes de implementar o modificar autenticación en la aplicación.
+---
+
 # Autenticación con Clerk
 
 ## 🔐 Regla Principal

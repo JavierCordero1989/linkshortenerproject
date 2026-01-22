@@ -1,3 +1,7 @@
+---
+description: Lea esto antes de implementar o modificar componentes UI en la aplicación.
+---
+
 # Componentes UI con shadcn/ui
 
 ## 🎨 Regla Principal
