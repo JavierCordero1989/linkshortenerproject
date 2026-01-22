@@ -16,6 +16,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { LoadingModal } from "@/components/LoadingModal";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -52,7 +53,7 @@ export default function RootLayout({
         >
           <header className="border-b border-zinc-800">
             <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-              <h1 className="text-xl font-bold">Link Shortener</h1>
+              <h1 className="text-xl font-bold">Gaver App</h1>
               <div className="flex gap-4 items-center">
                 <SignedOut>
                   <Dialog>
@@ -80,6 +81,7 @@ export default function RootLayout({
               </div>
             </nav>
           </header>
+          <LoadingModal />
           {children}
         </body>
       </html>

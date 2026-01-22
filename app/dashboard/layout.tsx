@@ -1,5 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { Sidebar } from "./Sidebar";
 
 export default async function DashboardLayout({
   children,
@@ -12,5 +13,12 @@ export default async function DashboardLayout({
     redirect("/");
   }
 
-  return <>{children}</>;
+  return (
+    <div className="flex min-h-screen">
+      <Sidebar />
+      <main className="flex-1">
+        {children}
+      </main>
+    </div>
+  );
 }
