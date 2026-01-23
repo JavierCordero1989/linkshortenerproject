@@ -66,7 +66,15 @@ export async function createLink(input: unknown) {
 
 ### 6. Verificación de Autenticación
 
-**TODAS** las acciones del servidor **DEBEN** verificar que el usuario esté logueado **ANTES** de realizar operaciones de base de datos:
+**TODAS** las acciones del servidor **DEBEN** verificar que el usuario esté logueado **ANTES** de realizar operaciones de base de datos.
+
+**ESTO ES OBLIGATORIO PARA:**
+- ✅ Crear registros (INSERT)
+- ✅ Modificar registros (UPDATE)
+- ✅ Eliminar registros (DELETE)
+- ✅ Listar/leer datos (SELECT)
+
+**SIN EXCEPCIONES**: La aplicación **NO** debe permitir realizar **NINGUNA** operación de base de datos sin un usuario autenticado.
 
 ```typescript
 import { auth } from '@clerk/nextjs/server';

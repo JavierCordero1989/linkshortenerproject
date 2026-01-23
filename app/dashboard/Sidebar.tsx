@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Link2, List, ChevronLeft, ChevronRight, Users, FileText } from "lucide-react";
+import { Link2, List, ChevronLeft, ChevronRight, Users, FileText, Car, MapPin, Fuel } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -47,6 +47,39 @@ export function Sidebar() {
         {
           title: "Cerrados",
           href: "/dashboard/articulos/cerrados",
+          icon: List,
+        },
+      ],
+    },
+    {
+      title: "Tipos de Vehículo",
+      icon: Car,
+      items: [
+        {
+          title: "Lista",
+          href: "/dashboard/tipos-vehiculo",
+          icon: List,
+        },
+      ],
+    },
+    {
+      title: "Estaciones de Servicio",
+      icon: MapPin,
+      items: [
+        {
+          title: "Lista",
+          href: "/dashboard/estaciones-servicio",
+          icon: List,
+        },
+      ],
+    },
+    {
+      title: "Registros de Gasolina",
+      icon: Fuel,
+      items: [
+        {
+          title: "Listado",
+          href: "/dashboard/registros-gasolina",
           icon: List,
         },
       ],
