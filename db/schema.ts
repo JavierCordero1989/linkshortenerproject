@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, uuid, uniqueIndex, index, integer, varchar, decimal } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp, uniqueIndex, index, integer, varchar, decimal } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
 export const links = pgTable(
