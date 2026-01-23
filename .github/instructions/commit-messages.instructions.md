@@ -5,9 +5,9 @@ applyTo: '**/*'
 
 # Mensajes de Commit - Conventional Commits en Español
 
-## 🎯 Regla Obligatoria
+## 🎯 Regla de Oro
 
-**TODOS los mensajes de commit DEBEN seguir Conventional Commits y estar en español.**
+**TODOS los mensajes de commit DEBEN seguir Conventional Commits y estar en español. Sin embargo, esto no es bloqueante para la aprobación del PR, pero considere su uso para que, en el futuro, esto sea una REGLA OBLIGATORIA.**
 
 ## 📋 Formato Requerido
 

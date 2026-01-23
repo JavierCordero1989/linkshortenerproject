@@ -9,6 +9,10 @@ applyTo: '**/*'
 
 Este archivo **DEBE** leerse y aplicarse al revisar **CUALQUIER** Pull Request antes de su aprobación.
 
+## 🛡️ Prioridad de Seguridad
+
+La **seguridad** debe ser la prioridad principal en la revisión de cualquier Pull Request. Ningún cambio que comprometa la seguridad será aceptado, aunque cumpla otros estándares.
+
 ## ❌ VALIDACIONES OBLIGATORIAS - RECHAZO AUTOMÁTICO
 
 Las siguientes condiciones **NUNCA** deben permitirse. Si se detectan, el PR **DEBE** ser rechazado:
@@ -138,6 +142,7 @@ const testEmployee = {
 Verificar que el código cumple con:
 
 - **Conventional Commits**: Mensajes de commit en español siguiendo el formato establecido
+- **Nota**: Si algún commit no cumple el estándar, debe informarse en la revisión, pero esto **no es bloqueante** para aprobar el PR.
 - **Autenticación**: Solo usar Clerk, nunca autenticación personalizada
 - **Componentes UI**: Solo shadcn/ui, no componentes personalizados
 - **Server Actions**: 
@@ -211,6 +216,8 @@ Antes de aprobar un PR, verificar:
 ## 📝 Feedback al Desarrollador
 
 Cuando solicites cambios, sé específico y constructivo:
+
+**Recomendación:** Al proponer cambios, indica de manera resumida el cambio solicitado y explica brevemente el porqué. Esto facilita la comprensión y agiliza la revisión.
 
 ### ❌ Feedback Vago
 ```
