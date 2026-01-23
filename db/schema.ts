@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, uuid, uniqueIndex, index, integer, varchar } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp, uuid, uniqueIndex, index, integer, varchar, decimal } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
 export const links = pgTable(
@@ -43,3 +43,44 @@ export const articulos = pgTable('articulos', {
 
 export type Articulo = typeof articulos.$inferSelect;
 export type NewArticulo = typeof articulos.$inferInsert;
+
+export const estacionesServicio = pgTable('estaciones_servicio', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  nombre: text('nombre').notNull(),
+  ubicacion: text('ubicacion').notNull(),
+  fechaCreacion: timestamp('fecha_creacion').default(sql`CURRENT_TIMESTAMP`).notNull(),
+  fechaModificacion: timestamp('fecha_modificacion').default(sql`CURRENT_TIMESTAMP`).notNull(),
+  fechaEliminado: timestamp('fecha_eliminado'),
+});
+
+export type EstacionServicio = typeof estacionesServicio.$inferSelect;
+export type NewEstacionServicio = typeof estacionesServicio.$inferInsert;
+
+export const tiposVehiculo = pgTable('tipos_vehiculo', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  nombre: text('nombre').notNull(),
+  fechaCreacion: timestamp('fecha_creacion').default(sql`CURRENT_TIMESTAMP`).notNull(),
+  fechaModificacion: timestamp('fecha_modificacion').default(sql`CURRENT_TIMESTAMP`).notNull(),
+  fechaEliminado: timestamp('fecha_eliminado'),
+});
+
+export type TipoVehiculo = typeof tiposVehiculo.$inferSelect;
+export type NewTipoVehiculo = typeof tiposVehiculo.$inferInsert;
+
+export const registrosGasolina = pgTable('registros_gasolina', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  idEstacionServicio: integer('id_estacion_servicio')
+    .notNull()
+    .references(() => estacionesServicio.id),
+  idTipoVehiculo: integer('id_tipo_vehiculo')
+    .notNull()
+    .references(() => tiposVehiculo.id),
+  kilometrajeActual: integer('kilometraje_actual').notNull(),
+  litrosCargados: decimal('litros_cargados', { precision: 10, scale: 2 }).notNull(),
+  montoCargado: decimal('monto_cargado', { precision: 10, scale: 2 }).notNull(),
+  precioPorLitro: decimal('precio_por_litro', { precision: 10, scale: 2 }).notNull(),
+  fechaCarga: timestamp('fecha_carga').default(sql`CURRENT_TIMESTAMP`).notNull(),
+});
+
+export type RegistroGasolina = typeof registrosGasolina.$inferSelect;
+export type NewRegistroGasolina = typeof registrosGasolina.$inferInsert;

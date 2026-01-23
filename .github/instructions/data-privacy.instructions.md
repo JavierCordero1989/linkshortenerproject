@@ -21,6 +21,7 @@ Los siguientes tipos de datos **NUNCA** deben aparecer en el chat:
 - ❌ Claves secretas (API keys, secret keys)
 - ❌ Certificados o claves privadas
 - ❌ Tokens de autenticación
+- ❌ Cadenas de conexión de base de datos (connection strings)
 
 ### Información Personal Identificable (PII)
 - ❌ Nombres de usuario reales
@@ -114,6 +115,7 @@ Cuando encuentres datos sensibles, **SIEMPRE** sustituir por:
 |---------------|-------------|
 | Contraseña | `"************"` o `"[REDACTADO]"` |
 | Token/API Key | `"[TOKEN_REDACTADO]"` o `"YOUR_API_KEY"` |
+| Connection String | `"postgresql://user:pass@host:5432/db"` o `"[DB_URL_REDACTADO]"` |
 | Email real | `"usuario@ejemplo.com"` |
 | Nombre real | `"Juan Pérez"` o `"Usuario de Prueba"` |
 | Teléfono real | `"+34 600 000 000"` |
