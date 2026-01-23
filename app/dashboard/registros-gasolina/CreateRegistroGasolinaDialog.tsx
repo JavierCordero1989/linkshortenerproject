@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -100,7 +100,7 @@ export function CreateRegistroGasolinaDialog({
                 onValueChange={setSelectedEstacion}
                 required
               >
-                <SelectTrigger>
+                <SelectTrigger id="idEstacionServicio">
                   <SelectValue placeholder="Selecciona una estación" />
                 </SelectTrigger>
                 <SelectContent>
@@ -111,11 +111,6 @@ export function CreateRegistroGasolinaDialog({
                   ))}
                 </SelectContent>
               </Select>
-              <input
-                type="hidden"
-                name="idEstacionServicio"
-                value={selectedEstacion}
-              />
             </div>
 
             <div className="grid gap-2">
@@ -128,7 +123,7 @@ export function CreateRegistroGasolinaDialog({
                 onValueChange={setSelectedTipoVehiculo}
                 required
               >
-                <SelectTrigger>
+                <SelectTrigger id="idTipoVehiculo">
                   <SelectValue placeholder="Selecciona un tipo de vehículo" />
                 </SelectTrigger>
                 <SelectContent>
@@ -139,11 +134,6 @@ export function CreateRegistroGasolinaDialog({
                   ))}
                 </SelectContent>
               </Select>
-              <input
-                type="hidden"
-                name="idTipoVehiculo"
-                value={selectedTipoVehiculo}
-              />
             </div>
 
             <div className="grid gap-2">
