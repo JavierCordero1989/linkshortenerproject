@@ -101,8 +101,8 @@ api-keys.txt
 
 ```typescript
 // ❌ PROHIBIDO - Credenciales hardcodeadas
-const API_KEY = "sk_live_51K3fj2kLmnOpQr...";
-const DATABASE_URL = "postgresql://admin:password123@prod-db.company.com:5432/maindb";
+const API_KEY = "[API_KEY_REDACTADA]";
+const DATABASE_URL = "postgresql://user:pass@host:5432/db";
 
 // ❌ PROHIBIDO - Datos sensibles en el código
 const employee = {
