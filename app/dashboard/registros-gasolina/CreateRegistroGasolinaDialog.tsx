@@ -39,21 +39,7 @@ export function CreateRegistroGasolinaDialog({
   const [selectedTipoVehiculo, setSelectedTipoVehiculo] = useState<string>('');
   const [litrosCargados, setLitrosCargados] = useState<string>('');
   const [montoCargado, setMontoCargado] = useState<string>('');
-  const [precioPorLitro, setPrecioPorLitro] = useState<string>('0.00');
   const router = useRouter();
-
-  // Calcular precio por litro automáticamente
-  useEffect(() => {
-    const litros = parseFloat(litrosCargados);
-    const monto = parseFloat(montoCargado);
-    
-    if (!isNaN(litros) && !isNaN(monto) && litros > 0) {
-      const precio = monto / litros;
-      setPrecioPorLitro(precio.toFixed(2));
-    } else {
-      setPrecioPorLitro('0.00');
-    }
-  }, [litrosCargados, montoCargado]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -67,7 +53,6 @@ export function CreateRegistroGasolinaDialog({
       kilometrajeActual: Number(formData.get('kilometrajeActual')),
       litrosCargados: litrosCargados,
       montoCargado: montoCargado,
-      precioPorLitro: precioPorLitro,
     };
 
     const result = await createRegistroGasolinaAction(data);
@@ -81,7 +66,6 @@ export function CreateRegistroGasolinaDialog({
       setSelectedTipoVehiculo('');
       setLitrosCargados('');
       setMontoCargado('');
-      setPrecioPorLitro('0.00');
     } else {
       setError(result.error);
     }
@@ -172,7 +156,7 @@ export function CreateRegistroGasolinaDialog({
                 type="number"
                 placeholder="Ejemplo: 15000"
                 required
-                min="0"
+                min="1"
                 step="1"
                 className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
               />
@@ -188,7 +172,7 @@ export function CreateRegistroGasolinaDialog({
                 type="number"
                 placeholder="Ejemplo: 45.50"
                 required
-                min="0"
+                min="0.01"
                 step="0.01"
                 value={litrosCargados}
                 onChange={(e) => setLitrosCargados(e.target.value)}
@@ -204,28 +188,13 @@ export function CreateRegistroGasolinaDialog({
                 id="montoCargado"
                 name="montoCargado"
                 type="number"
-                placeholder="Ejemplo: 500.00"
+                placeholder="Ejemplo: 500"
                 required
-                min="0"
-                step="0.01"
+                min="1"
+                step="1"
                 value={montoCargado}
                 onChange={(e) => setMontoCargado(e.target.value)}
                 className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              />
-            </div>
-
-            <div className="grid gap-2">
-              <label htmlFor="precioPorLitro" className="text-sm font-medium">
-                Precio por Litro <span className="text-zinc-500">(Calculado automáticamente)</span>
-              </label>
-              <input
-                id="precioPorLitro"
-                name="precioPorLitro"
-                type="text"
-                value={precioPorLitro}
-                readOnly
-                disabled
-                className="flex h-10 w-full rounded-md border border-input bg-zinc-900 px-3 py-2 text-sm text-zinc-400 cursor-not-allowed opacity-70"
               />
             </div>
 

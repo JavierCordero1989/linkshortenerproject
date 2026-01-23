@@ -2,6 +2,7 @@
 
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
+import { auth } from '@clerk/nextjs/server';
 import { createEstacionServicio, updateEstacionServicio, softDeleteEstacionServicio } from '@/data/estacionesServicio';
 
 const createEstacionServicioSchema = z.object({
@@ -18,6 +19,12 @@ type ActionResponse<T> =
 export async function createEstacionServicioAction(
   input: CreateEstacionServicioInput
 ): Promise<ActionResponse<{ id: number }>> {
+  // Verificar autenticación
+  const { userId } = await auth();
+  if (!userId) {
+    return { success: false, error: 'No autenticado' };
+  }
+
   // Validar entrada
   const parsed = createEstacionServicioSchema.safeParse(input);
   if (!parsed.success) {
@@ -61,6 +68,12 @@ type UpdateEstacionServicioInput = z.infer<typeof updateEstacionServicioSchema>;
 export async function updateEstacionServicioAction(
   input: UpdateEstacionServicioInput
 ): Promise<ActionResponse<{ id: number }>> {
+  // Verificar autenticación
+  const { userId } = await auth();
+  if (!userId) {
+    return { success: false, error: 'No autenticado' };
+  }
+
   // Validar entrada
   const parsed = updateEstacionServicioSchema.safeParse(input);
   if (!parsed.success) {
@@ -102,6 +115,12 @@ type DeleteEstacionServicioInput = z.infer<typeof deleteEstacionServicioSchema>;
 export async function deleteEstacionServicioAction(
   input: DeleteEstacionServicioInput
 ): Promise<ActionResponse<{ id: number }>> {
+  // Verificar autenticación
+  const { userId } = await auth();
+  if (!userId) {
+    return { success: false, error: 'No autenticado' };
+  }
+
   // Validar entrada
   const parsed = deleteEstacionServicioSchema.safeParse(input);
   if (!parsed.success) {

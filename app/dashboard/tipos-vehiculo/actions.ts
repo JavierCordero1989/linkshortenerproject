@@ -2,6 +2,7 @@
 
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
+import { auth } from '@clerk/nextjs/server';
 import { createTipoVehiculo, updateTipoVehiculo, softDeleteTipoVehiculo } from '@/data/tiposVehiculo';
 
 const createTipoVehiculoSchema = z.object({
@@ -17,6 +18,12 @@ type ActionResponse<T> =
 export async function createTipoVehiculoAction(
   input: CreateTipoVehiculoInput
 ): Promise<ActionResponse<{ id: number }>> {
+  // Verificar autenticación
+  const { userId } = await auth();
+  if (!userId) {
+    return { success: false, error: 'No autenticado' };
+  }
+
   // Validar entrada
   const parsed = createTipoVehiculoSchema.safeParse(input);
   if (!parsed.success) {
@@ -58,6 +65,12 @@ type UpdateTipoVehiculoInput = z.infer<typeof updateTipoVehiculoSchema>;
 export async function updateTipoVehiculoAction(
   input: UpdateTipoVehiculoInput
 ): Promise<ActionResponse<{ id: number }>> {
+  // Verificar autenticación
+  const { userId } = await auth();
+  if (!userId) {
+    return { success: false, error: 'No autenticado' };
+  }
+
   // Validar entrada
   const parsed = updateTipoVehiculoSchema.safeParse(input);
   if (!parsed.success) {
@@ -98,6 +111,12 @@ type DeleteTipoVehiculoInput = z.infer<typeof deleteTipoVehiculoSchema>;
 export async function deleteTipoVehiculoAction(
   input: DeleteTipoVehiculoInput
 ): Promise<ActionResponse<{ id: number }>> {
+  // Verificar autenticación
+  const { userId } = await auth();
+  if (!userId) {
+    return { success: false, error: 'No autenticado' };
+  }
+
   // Validar entrada
   const parsed = deleteTipoVehiculoSchema.safeParse(input);
   if (!parsed.success) {
