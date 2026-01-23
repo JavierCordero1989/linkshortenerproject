@@ -14,7 +14,7 @@ Este archivo contiene las políticas de seguridad y privacidad que tienen **PRIO
 
 ## 📋 Instrucciones Adicionales y Obligatorias
 
-Refierase a los siguientes archivos para ver las instrucciones adicionales para este proyecto:
+Refiérase a los siguientes archivos para ver las instrucciones adicionales para este proyecto:
 
 - [Autenticación](./instructions/authentication.instructions.md)
 - [Mensajes de commits](./instructions/commit-messages.instructions.md)
