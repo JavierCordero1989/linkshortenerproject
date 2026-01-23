@@ -6,9 +6,11 @@ import { Fuel } from "lucide-react";
 import { CreateRegistroGasolinaDialog } from "./CreateRegistroGasolinaDialog";
 
 export default async function RegistrosGasolinaPage() {
-  const registros = await getAllRegistrosGasolina();
-  const estacionesServicio = await getAllEstacionesServicio();
-  const tiposVehiculo = await getAllTiposVehiculo();
+  const [registros, estacionesServicio, tiposVehiculo] = await Promise.all([
+    getAllRegistrosGasolina(),
+    getAllEstacionesServicio(),
+    getAllTiposVehiculo(),
+  ]);
 
   return (
     <div className="container mx-auto px-4 py-8">
