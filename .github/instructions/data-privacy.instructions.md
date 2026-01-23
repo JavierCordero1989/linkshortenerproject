@@ -99,11 +99,11 @@ const ejemplo = {
 
 // ❌ INCORRECTO
 const ejemplo = {
-  apiKey: "sk_live_51K3fj2kL...",
-  email: "jgarcia@empresa.com",
-  password: "MiContraseña123",
-  token: "eyJhbGciOiJIUzI1NiIs...",
-  username: "jgarcia"
+  apiKey: "[API_KEY_REDACTADA]",
+  email: "[EMAIL_REAL]",
+  password: "[CONTRASEÑA_REDACTADA]",
+  token: "[JWT_REDACTADO]",
+  username: "[USUARIO_REAL]"
 };
 ```
 
