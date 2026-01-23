@@ -1,6 +1,6 @@
 # Instrucciones para estándares de código y más
 
-Todas las instrucciones para implementar nuevas funcionalidades, corregir errores, mejorar código existente, y todo lo relacionado al proyecto o repositorio, TIENEN ser leídas y tomadas en cuenta las que se encuentran tanto en este archivo como en el directorio .github/instructions. Hacer caso omiso de estas instrucciones puede resultar en que los Pull Requests sean rechazados o solicitadas múltiples modificaciones antes de su aprobación.
+Todas las instrucciones para implementar nuevas funcionalidades, corregir errores, mejorar código existente, y todo lo relacionado al proyecto o repositorio, TIENEN que ser leídas y tomadas en cuenta las que se encuentran tanto en este archivo como en el directorio .github/instructions. Hacer caso omiso de estas instrucciones puede resultar en que los Pull Requests sean rechazados o solicitadas múltiples modificaciones antes de su aprobación.
 
 ## 🚨 PRIORIDAD CRÍTICA
 
