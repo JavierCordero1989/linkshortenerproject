@@ -13,16 +13,6 @@ Este archivo **DEBE** leerse y aplicarse al revisar **CUALQUIER** Pull Request a
 
 La **seguridad** debe ser la prioridad principal en la revisión de cualquier Pull Request. Ningún cambio que comprometa la seguridad será aceptado, aunque cumpla otros estándares.
 
-## 🏷️ Validación de Nombre de Rama
-
-Solo se aceptarán Pull Requests provenientes de ramas con nombres válidos siguiendo el patrón:
-
-- `feature/*`
-- `bugfix/*`
-- `hotfix/*`
-
-Si el nombre de la rama no cumple con estos prefijos, el PR debe ser rechazado.
-
 ## ❌ VALIDACIONES OBLIGATORIAS - RECHAZO AUTOMÁTICO
 
 Las siguientes condiciones **NUNCA** deben permitirse. Si se detectan, el PR **DEBE** ser rechazado:
@@ -259,7 +249,5 @@ Un PR solo puede aprobarse cuando:
 4. ✅ Cumple con los estándares del proyecto
 5. ✅ El código es de calidad y está bien estructurado
 6. ✅ La funcionalidad fue probada
-
-7. ✅ El nombre de la rama es válido (feature/*, bugfix/*, hotfix/*)
 
 **RECUERDA**: Es mejor solicitar cambios que aprobar código que no cumpla con los estándares. La calidad y seguridad del código es responsabilidad de todos.
